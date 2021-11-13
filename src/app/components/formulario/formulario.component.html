@@ -14,7 +14,7 @@
       <th scope="col">{{config.config.formComponent.colDelete}}</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody ***ngIf="users && users.length > 0">
     <tr *ngFor="let item of users">
       <th scope="row">{{item.id | slice: 0 : 10}}...</th>
       <td>{{item.user}}</td>
