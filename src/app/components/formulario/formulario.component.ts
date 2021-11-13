@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-formulario',
@@ -14,7 +15,8 @@ export class FormularioComponent implements OnInit {
   public selectedId = ""
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public config: ConfigService
   ) {
     this.form = this.formBuilder.group({
       user: ['', Validators.required ]
@@ -47,6 +49,9 @@ export class FormularioComponent implements OnInit {
     return uuid;
 }
 
+  getConfigFC(){
+    return this.config
+  }
   add() {
     //console.log(this.selectedId)
     if(this.selectedId){
